@@ -1,0 +1,20 @@
+function calculateBMR() {
+  const age = document.getElementById('age').value;
+  const gender = document.getElementById('gender').value;
+  const weight = document.getElementById('weight').value;
+  const height = document.getElementById('height').value;
+
+  if (age && gender && weight && height) {
+    let bmr;
+
+    if (gender === 'male') {
+      bmr = 10 * weight + 6.25 * height - 5 * age + 5;
+    } else {
+      bmr = 10 * weight + 6.25 * height - 5 * age - 161;
+    }
+
+    document.getElementById('result').innerHTML = `Tu tasa metabólica basal (BMR) es: ${bmr.toFixed(2)} kcal/día`;
+  } else {
+    document.getElementById('result').innerHTML = 'Por favor, complete todos los campos.';
+  }
+}
